@@ -5,9 +5,14 @@ class Pollutants(Base):
     __tablename__ ="Contaminantes"
 
     id = Column(Integer, primary_key= True) 
-    particles= Column(Double)   ## Concentracion de las partículas contaminantes
-    time_in= Column(DateTime)   ## Hora de medición inicial
-    time_out= Column(DateTime)  ## Hora de medición final
+    Cp= Column(Double)      ## Concentración medida del contaminante
+    PCalto= Column(Double)  ## Punto de corte mayor o igual al contaminante
+    PCbajo= Column(Double)  ## Punto de corte menor o igual al contaminante
+    Ialto= Column(Double)   ## Valor del ICA correspondiente al 𝑃𝐶𝑎𝑙𝑡𝑜
+    Ibajo= Column(Double)   ## Valor del ICA correspondiente al 𝑃𝐶bajo
+
+    
+
 
 
 
