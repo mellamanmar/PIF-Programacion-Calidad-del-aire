@@ -13,7 +13,7 @@ class Services ():
         result= self.db.query(PollutantsModel).filter(PollutantsModel.id == id).first()
         return result
     
-    def agregate_data(self, data:PollutantsModel, quality:AirQualityModel):
+    def agregate_data(self, data:PollutantsModel):
         new_data = PollutantsModel(
             Cp= data.Cp,
             PCalto= data.PCalto,
@@ -22,8 +22,8 @@ class Services ():
             Ibajo= data.Ibajo
         )
         self.db.add(new_data)
-        quality = ((new_data.Ialto-new_data.Ibajo)/(new_data.Ialto-new_data.Ibajo))*(new_data.Cp-new_data.PCbajo)+new_data.Ibajo
-        self.db.add(quality)
+        # quality = ((new_data.Ialto-new_data.Ibajo)/(new_data.Ialto-new_data.Ibajo))*(new_data.Cp-new_data.PCbajo)+new_data.Ibajo
+        # self.db.add(quality)
         self.db.commit()
         return
     
